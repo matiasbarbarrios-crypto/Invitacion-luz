@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los 15 de Luz 💜</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;background:radial-gradient(circle at top,#65428c,#171020 75%);color:white;font-family:Georgia,serif;text-align:center}
+.card{max-width:430px;width:100%;padding:32px 22px;border:2px solid #d9c1ff;border-radius:25px;background:linear-gradient(145deg,#35204f,#171020);box-shadow:0 0 35px #c39aff55}
+.small{letter-spacing:4px;color:#e4d4ff}
+h1{font-size:52px;color:#e5d3ff;margin:15px 0;text-shadow:0 0 18px #c59aff}
+h2{font-size:23px;font-weight:normal}
+p{line-height:1.6}
+.number{font-size:35px;color:#e4d4ff;font-weight:bold}
+.count{display:flex;justify-content:center;gap:13px;margin:20px 0}
+.unit{font-size:12px}
+.btn{display:block;text-decoration:none;color:#21132f;background:linear-gradient(90deg,#e8d8ff,#bca0ed);padding:14px;border-radius:30px;margin:12px 0;font-family:Arial,sans-serif;font-weight:bold}
+.alias{background:#ffffff12;padding:13px;border-radius:12px;letter-spacing:1px}
+footer{color:#d7c4f5;font-size:13px;margin-top:20px}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="small">UNA NOCHE MÁGICA</div>
+<h1>Mis XV</h1>
+<h2>💜 Luz 💜</h2>
+<p>Hay momentos que soñamos toda la vida...<br>¡Y quiero compartir este con vos!</p>
+<div class="small">FALTAN</div>
+<div class="count">
+<div><div class="number" id="days">--</div><div class="unit">DÍAS</div></div>
+<div><div class="number" id="hours">--</div><div class="unit">HORAS</div></div>
+<div><div class="number" id="minutes">--</div><div class="unit">MINUTOS</div></div>
+</div>
+<p>📅 27 de noviembre de 2026<br>🕗 20:00 hs</p>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Salvador+Mazza+3484+Quilmes+Oeste+Buenos+Aires" target="_blank">📍 CÓMO LLEGAR</a>
+<div class="small">REGALO</div>
+<p>Si querés hacerme un regalo:</p>
+<div class="alias">💸 Alias: <strong id="alias">Luzz.097</strong></div>
+<button class="btn" onclick="navigator.clipboard.writeText('Luzz.097').then(()=>alert('¡Alias copiado! 💜')).catch(()=>alert('Mi alias es Luzz.097'))">COPIAR ALIAS</button>
+<footer>¡Te espero para celebrar una noche inolvidable! ✨<br>Lila, plateado y mucha magia 💜</footer>
+</main>
+<script>
+function update(){
+const target=new Date('2026-11-27T20:00:00-03:00').getTime();
+const diff=target-Date.now();
+if(diff<=0){document.querySelector('.count').innerHTML='¡Llegó el gran día! 💜';return}
+document.getElementById('days').textContent=Math.floor(diff/86400000);
+document.getElementById('hours').textContent=Math.floor(diff%86400000/3600000);
+document.getElementById('minutes').textContent=Math.floor(diff%3600000/60000);
+}
+update();setInterval(update,60000);
+</script>
+</body>
+</html>
