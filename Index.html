@@ -1,105 +1,444 @@
-<!DOCTYPE html><html lang="es">
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Los 15 de Luz
-faltan dias </title>
+<meta name="theme-color" content="#ead8ff">
+<title>Los 15 de Luz 💜</title>
+
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Georgia,serif;
-text-align:center;
-color:white;
-background:linear-gradient(145deg,#180b2c,#663399,#c8a2e8,#35204d);
-min-height:100vh;
-padding:25px 15px;
+:root {
+  --lila: #ead8ff;
+  --lila-claro: #fbf6ff;
+  --lavanda: #d7b6f3;
+  --violeta: #8954b5;
+  --plata: #e8e8f0;
+  --texto: #593577;
 }
-.tarjeta{
-max-width:420px;
-margin:auto;
-padding:30px 20px;
-border:2px solid #e8d5ff;
-border-radius:25px;
-background:rgba(30,10,50,.65);
-box-shadow:0 0 25px #e5c9ff;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 18px 10px;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--texto);
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 15%, #fff 0 2px, transparent 4px),
+    radial-gradient(circle at 80% 35%, #fff 0 2px, transparent 4px),
+    linear-gradient(145deg, #f9f1ff, #ead8ff, #d8b8f2, #f7efff, #e8e8f0);
+  background-size: 90px 100px, 120px 130px, cover;
+  overflow-x: hidden;
 }
-h1{font-size:42px;color:#f1dcff;margin:10px}
-h2{color:#ead8ff}
-.brillo{font-size:28px}
-p{font-size:18px;line-height:1.6}
-.contador{
-display:flex;
-justify-content:center;
-gap:8px;
-margin:20px 0;
+
+.page {
+  max-width: 540px;
+  margin: auto;
+  position: relative;
 }
-.caja{
-background:#eee0ff;
-color:#38204d;
-padding:12px 8px;
-border-radius:10px;
-min-width:65px;
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 20px 26px;
+  border: 3px double #c9a4eb;
+  border-radius: 30px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 250, 255, .96),
+    rgba(238, 220, 255, .95),
+    rgba(255, 255, 255, .96)
+  );
+  box-shadow: 0 0 25px #fff, 0 0 45px #c6a0e7;
 }
-.numero{font-size:25px;font-weight:bold}
-small{display:block}
-.boton{
-display:block;
-margin:15px auto;
-padding:13px;
-max-width:280px;
-border-radius:25px;
-background:#e8d5ff;
-color:#321747;
-text-decoration:none;
-font-weight:bold;
-font-size:16px;
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(151, 105, 190, .45);
+  border-radius: 23px;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.crown {
+  font-size: 43px;
+  margin: 0;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.eyebrow {
+  letter-spacing: 5px;
+  font-size: 17px;
+  margin: 4px 0 0;
+}
+
+h1 {
+  font-size: clamp(52px, 14vw, 76px);
+  font-weight: normal;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.2;
+  color: #9b6bc7;
+  text-shadow: 1px 2px #fff, 0 0 16px #d5b4f2;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 10px 0 20px;
+}
+
+.decor {
+  font-size: 30px;
+  letter-spacing: 9px;
+  margin: 12px 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #c5a0e8;
+  margin: 22px 0;
+}
+
+.section-title {
+  font-size: 19px;
+  letter-spacing: 2px;
+  margin: 8px 0 12px;
+  color: #9060ba;
+}
+
+.date {
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  margin: 15px 0 8px;
+}
+
+.time-box {
+  padding: 12px 2px;
+  border: 1px solid white;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #d7b4f5, #b88cde, #e9d5ff);
+  box-shadow: 0 0 10px #fff;
+  color: #fff;
+}
+
+.time-box strong {
+  display: block;
+  font-size: clamp(20px, 5vw, 27px);
+}
+
+.time-box span {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.small-note {
+  font-style: italic;
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.address {
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.address strong {
+  font-size: 22px;
+}
+
+.dress {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.color-tag, .alias {
+  display: inline-block;
+  border: 1px solid #c8a0e9;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #f3e6ff, #d8b7f5, #f5eaff);
+  padding: 10px 20px;
+  box-shadow: 0 3px 12px #dbc1f1;
+}
+
+.alias {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 8px 0;
+}
+
+button {
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin: 6px 3px;
+  color: white;
+  background: linear-gradient(135deg, #c29ae8, #9360c2);
+  font-size: 15px;
+  font-family: inherit;
+  box-shadow: 0 3px 12px #d4b4ee;
+  cursor: pointer;
+}
+
+button:active { transform: scale(.97); }
+
+.music-note {
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.footer {
+  font-size: 31px;
+  font-style: italic;
+  margin: 18px 0 5px;
+  color: #9360c2;
+}
+
+.footer-small {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.balloon {
+  position: fixed;
+  z-index: 0;
+  font-size: 42px;
+  opacity: .8;
+  animation: float 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.b1 { top: 5%; left: 2%; }
+.b2 { top: 19%; right: 2%; animation-delay: -2s; }
+.b3 { bottom: 9%; left: 3%; animation-delay: -3s; }
+.b4 { bottom: 16%; right: 3%; animation-delay: -1s; }
+
+.disco {
+  position: fixed;
+  z-index: 0;
+  font-size: 48px;
+  opacity: .8;
+  animation: spin 12s linear infinite;
+  pointer-events: none;
+}
+
+.d1 { top: 2%; right: 10%; }
+.d2 { bottom: 3%; left: 8%; animation-direction: reverse; }
+
+.sparkle {
+  position: fixed;
+  z-index: 1;
+  color: white;
+  text-shadow: 0 0 8px #fff, 0 0 18px #c79cf0;
+  pointer-events: none;
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.s1 { top: 12%; left: 20%; }
+.s2 { top: 40%; right: 10%; animation-delay: .8s; }
+.s3 { bottom: 24%; left: 13%; animation-delay: 1.3s; }
+.s4 { bottom: 8%; right: 18%; animation-delay: .4s; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-16px) rotate(5deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .25; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 6px #fff; }
+  50% { text-shadow: 0 0 18px #b98ae5; }
+}
+
+@media (max-width: 380px) {
+  .card { padding: 24px 13px; }
+  .subtitle { font-size: 18px; }
+  .address { font-size: 17px; }
+  .countdown { gap: 4px; }
+  .time-box { padding: 10px 1px; }
 }
 </style>
 </head>
+
 <body>
-<div class="tarjeta">
-<div class="brillo">✨ 💜 ✨</div>
-<p>¡Una noche mágica para celebrar!</p>
-<h1>Mis 15 años</h1>
-<h2>LUZ</h2>
-<p>Quiero compartir con vos una noche llena de alegría, amor y momentos inolvidables.</p>
-<div class="brillo">✧ ✦ ✧</div>
-<h2>27 de noviembre de 2026</h2>
-<p>🕗 A las 20:00 hs</p>
-<p>📍 Salvador Mazza 3484<br>Quilmes Oeste</p>
-<h2>⏳ Falta para la fiesta</h2>
-<div class="contador">
-<div class="caja"><span class="numero" id="dias">0</span><small>Días</small></div>
-<div class="caja"><span class="numero" id="horas">0</span><small>Horas</small></div>
-<div class="caja"><span class="numero" id="minutos">0</span><small>Minutos</small></div>
-</div>
-<p>🎁 Si querés hacerme un regalo:</p>
-<p>Mi alias es<br><strong style="font-size:24px;color:#f1dcff">Luzz.097</strong></p>
-<button class="boton" onclick="copiarAlias()">💜 Copiar alias</button>
-<p id="mensaje"></p>
-<div class="brillo">🥂 ¡Te espero para festejar juntos! 🥂</div>
-</div>
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+<div class="disco d1">🪩</div>
+<div class="disco d2">🪩</div>
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">✦</div>
+<div class="sparkle s4">✧</div>
+
+<main class="page">
+  <article class="card">
+    <div class="content">
+
+      <p class="crown">♕</p>
+      <p class="eyebrow">MIS 15 AÑOS</p>
+      <h1>Luz</h1>
+      <p class="subtitle">Una noche mágica para compartir un sueño</p>
+
+      <div class="decor">♡ ✧ ♡</div>
+      <hr>
+
+      <p class="date">
+        ♧ 27 de noviembre de 2026<br>
+        ◷ A las 20:00 horas
+      </p>
+
+      <hr>
+      <p class="section-title">✧ CUENTA REGRESIVA ✧</p>
+
+      <div class="countdown">
+        <div class="time-box">
+          <strong id="days">--</strong><span>DÍAS</span>
+        </div>
+        <div class="time-box">
+          <strong id="hours">--</strong><span>HORAS</span>
+        </div>
+        <div class="time-box">
+          <strong id="minutes">--</strong><span>MINUTOS</span>
+        </div>
+        <div class="time-box">
+          <strong id="seconds">--</strong><span>SEGUNDOS</span>
+        </div>
+      </div>
+
+      <p class="small-note" id="countdown-note">¡Cada vez falta menos!</p>
+
+      <hr>
+      <p class="section-title">♡ DIRECCIÓN DEL SALÓN ♡</p>
+      <p class="address">
+        <strong>Multi Eventos Barrio Parque</strong><br>
+        Salvador Mazza 3484<br>
+        Quilmes Oeste
+      </p>
+      <p class="small-note">¡Te espero para celebrar juntos!</p>
+
+      <hr>
+      <p class="section-title">✧ VESTIMENTA ✧</p>
+      <p class="dress">Elegante sport</p>
+      <p class="color-tag">Color reservado: LILA ♡</p>
+
+      <hr>
+      <p class="section-title">♡ UN DETALLE ESPECIAL ♡</p>
+      <p class="address">
+        Tu presencia es mi mejor regalo,<br>
+        pero si querés tener un detalle,<br>
+        te dejo mi alias:
+      </p>
+      <p class="alias" id="alias">Luzz.097</p><br>
+      <button onclick="copiarAlias()">▢ Copiar alias</button>
+      <p id="copy-message" class="music-note"></p>
+
+      <hr>
+      <p class="section-title">🎶 MÚSICA MÁGICA 🎶</p>
+      <audio id="musica" loop preload="none">
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
+      <button id="music-button" onclick="activarMusica()">♫ Activar música</button>
+      <p class="music-note">Una melodía suave para soñar ✨</p>
+
+      <p class="footer">¡Te espero!</p>
+      <p class="footer-small">MIS QUINCE · LUZ · 2026</p>
+
+    </div>
+  </article>
+</main>
+
 <script>
-function actualizar(){
-const fecha=new Date("2026-11-27T20:00:00-03:00");
-let diferencia=fecha-new Date();
-if(diferencia<0)diferencia=0;
-document.getElementById("dias").textContent=Math.floor(diferencia/86400000);
-document.getElementById("horas").textContent=Math.floor(diferencia%86400000/3600000);
-document.getElementById("minutos").textContent=Math.floor(diferencia%3600000/60000);
+function actualizarCuenta() {
+  const fechaFiesta = new Date("2026-11-27T20:00:00-03:00");
+  const ahora = new Date();
+  let diferencia = fechaFiesta - ahora;
+
+  if (diferencia <= 0) {
+    document.getElementById("days").textContent = "🎉";
+    document.getElementById("hours").textContent = "🎉";
+    document.getElementById("minutes").textContent = "🎉";
+    document.getElementById("seconds").textContent = "🎉";
+    document.getElementById("countdown-note").textContent =
+      "¡Llegó el gran día! ¡Felices 15, Luz!";
+    return;
+  }
+
+  const dias = Math.floor(diferencia / 86400000);
+  diferencia %= 86400000;
+  const horas = Math.floor(diferencia / 3600000);
+  diferencia %= 3600000;
+  const minutos = Math.floor(diferencia / 60000);
+  const segundos = Math.floor((diferencia % 60000) / 1000);
+
+  document.getElementById("days").textContent = dias;
+  document.getElementById("hours").textContent = String(horas).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutos).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(segundos).padStart(2, "0");
 }
-function copiarAlias(){
-if(navigator.clipboard){
-navigator.clipboard.writeText("Luzz.097").then(()=>{
-document.getElementById("mensaje").textContent="¡Alias copiado! 💜";
-}).catch(()=>{document.getElementById("mensaje").textContent="Alias: Luzz.097";});
-}else{
-document.getElementById("mensaje").textContent="Alias: Luzz.097";
+
+async function copiarAlias() {
+  const alias = "Luzz.097";
+  const mensaje = document.getElementById("copy-message");
+
+  try {
+    await navigator.clipboard.writeText(alias);
+    mensaje.textContent = "¡Alias copiado! 💜";
+  } catch (e) {
+    mensaje.textContent = "Tu alias es: " + alias;
+  }
 }
+
+async function activarMusica() {
+  const audio = document.getElementById("musica");
+  const boton = document.getElementById("music-button");
+
+  try {
+    if (audio.paused) {
+      await audio.play();
+      boton.textContent = "Ⅱ Pausar música";
+    } else {
+      audio.pause();
+      boton.textContent = "♫ Activar música";
+    }
+  } catch (e) {
+    alert("Todavía falta subir el archivo musica.mp3 al repositorio.");
+  }
 }
-actualizar();
-setInterval(actualizar,60000);
+
+actualizarCuenta();
+setInterval(actualizarCuenta, 1000);
 </script>
 </body>
 </html>
