@@ -4,308 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mis XV - Luz</title>
-
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Georgia,serif;
+ color:white;
+ text-align:center;
+ background:linear-gradient(135deg,#180d30,#552b78,#c4a9e8,#30204d);
+ background-attachment:fixed;
 }
-
-body {
-  margin: 0;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  color: white;
-  text-align: center;
-  background: linear-gradient(160deg, #17002d, #5b1685, #c5a5e8, #28103e);
-  background-attachment: fixed;
-  overflow-x: hidden;
+.card{
+ max-width:520px;
+ margin:22px auto;
+ padding:30px 20px;
+ border:2px solid #e8d9ff;
+ border-radius:25px;
+ background:rgba(30,14,49,.88);
+ box-shadow:0 0 30px #e4c9ff;
 }
-
-.invitacion {
-  width: 90%;
-  max-width: 480px;
-  margin: 30px auto;
-  padding: 30px 20px;
-  border: 2px solid #e8d8ff;
-  border-radius: 25px;
-  background: rgba(22, 0, 40, 0.82);
-  box-shadow: 0 0 25px #e0bfff;
+.crown{font-size:48px}
+h1{
+ font-size:52px;
+ margin:8px 0;
+ color:#f2e6ff;
+ text-shadow:0 0 15px #d5b1ff;
 }
-
-h1 {
-  font-size: 43px;
-  color: #f4e8ff;
-  text-shadow: 0 0 15px #e5b8ff;
-  margin-bottom: 5px;
+h2{color:#e8d7ff;font-size:25px}
+p{font-size:18px;line-height:1.6}
+.silver{color:#e5e5f5}
+.divider{color:#e4c5ff;font-size:25px;margin:18px}
+#contador{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px;
+ margin:22px 0;
 }
-
-h2 {
-  font-size: 27px;
-  color: #e8cfff;
+.tiempo{
+ background:#eee5ff;
+ color:#37204e;
+ border-radius:12px;
+ padding:12px 3px;
+ font-size:25px;
+ font-weight:bold;
 }
-
-.nombre {
-  font-size: 58px;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 0 0 15px #d9a6ff, 0 0 30px #b45cff;
-  margin: 10px 0;
+.tiempo small{display:block;font-size:11px}
+button,.boton{
+ display:block;
+ width:100%;
+ border:0;
+ border-radius:25px;
+ padding:14px;
+ margin:12px 0;
+ background:linear-gradient(90deg,#d7b7ff,#f1eaff,#c7c8df);
+ color:#301743;
+ font-size:17px;
+ font-weight:bold;
+ text-decoration:none;
+ cursor:pointer;
 }
-
-.frase {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #f6eaff;
-  margin: 20px 0;
+.alias{
+ padding:15px;
+ border:1px dashed #eee0ff;
+ border-radius:12px;
+ font-size:24px;
+ letter-spacing:1px;
 }
-
-.detalle {
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(240,220,255,0.5);
-  border-radius: 15px;
-  padding: 15px 10px;
-  margin: 15px 0;
-  line-height: 1.8;
-}
-
-.contador {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 20px 0;
-}
-
-.tiempo {
-  background: linear-gradient(145deg, #eadcff, #9f73c8);
-  color: #2d1044;
-  padding: 12px 6px;
-  border-radius: 12px;
-  min-width: 65px;
-  box-shadow: 0 0 12px #d9b6ff;
-}
-
-.tiempo strong {
-  display: block;
-  font-size: 25px;
-}
-
-.tiempo span {
-  font-size: 11px;
-}
-
-button {
-  display: inline-block;
-  margin: 8px 4px;
-  padding: 13px 18px;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(135deg, #f3e8ff, #bd8df0);
-  color: #32104c;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 12px #d9b6ff;
-}
-
-button:active {
-  transform: scale(0.96);
-}
-
-.alias {
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #f0d9ff;
-  overflow-wrap: anywhere;
-}
-
-.pie {
-  font-size: 13px;
-  margin-top: 25px;
-  color: #e8d5ff;
-}
-
-.brillo {
-  position: fixed;
-  top: -20px;
-  color: #fff;
-  font-size: 18px;
-  pointer-events: none;
-  animation: caer linear infinite;
-  z-index: 5;
-}
-
-@keyframes caer {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-  }
-}
-
-@media (max-width: 360px) {
-  h1 { font-size: 35px; }
-  .nombre { font-size: 48px; }
-  .tiempo { min-width: 55px; padding: 10px 3px; }
-  .tiempo strong { font-size: 21px; }
-}
+footer{font-size:14px;color:#e4d8f5;margin-top:20px}
+.star{color:#f3e6ff;font-size:20px}
 </style>
 </head>
-
 <body>
+<div class="card">
+ <div class="star">✦ ✧ ✦ ✧ ✦</div>
+ <div class="crown">👑</div>
+ <p class="silver">UNA NOCHE MÁGICA PARA CELEBRAR</p>
+ <h2>MIS XV AÑOS</h2>
+ <h1>LUZ</h1>
+ <div class="divider">♡ ✧ ♡</div>
 
-<div class="invitacion">
+ <p>Hay momentos que soñamos toda la vida<br>
+ y este será uno de ellos.</p>
+ <p>Quiero compartir con vos una noche llena de<br>
+ <strong>magia, alegría, música y amor.</strong></p>
 
-  <h1>✨ MIS XV ✨</h1>
+ <div class="divider">✦ ───────── ✦</div>
+ <h2>¡TE ESPERO!</h2>
+ <p>📅 Viernes 27 de noviembre de 2026</p>
+ <p>🕗 A las 20:00 hs</p>
 
-  <div class="nombre">Luz</div>
+ <h2>FALTA MUY POQUITO</h2>
+ <div id="contador">
+  <div class="tiempo"><span id="dias">0</span><small>DÍAS</small></div>
+  <div class="tiempo"><span id="horas">0</span><small>HORAS</small></div>
+  <div class="tiempo"><span id="minutos">0</span><small>MIN</small></div>
+  <div class="tiempo"><span id="segundos">0</span><small>SEG</small></div>
+ </div>
 
-  <h2>💜 ¡Estás invitado a mi fiesta! 💜</h2>
+ <div class="divider">✧ ♡ ✧</div>
+ <h2>¿DÓNDE?</h2>
+ <p>📍 Salvador Mazza 3484<br>Quilmes Oeste</p>
+ <a class="boton" target="_blank"
+ href="https://www.google.com/maps/search/?api=1&query=Salvador+Mazza+3484+Quilmes+Oeste">
+ VER UBICACIÓN 📍
+ </a>
 
-  <div class="frase">
-    Hay momentos inolvidables que se guardan en el corazón.
-    <br>
-    Quiero compartir con vos una noche mágica,
-    llena de alegría, música y sueños.
-    <br><br>
-    ✨ ¡Te espero para celebrar mis 15 años! ✨
-  </div>
+ <div class="divider">✦ ✧ ✦</div>
+ <h2>UN REGALITO PARA MÍ 💜</h2>
+ <p>Si querés hacerme un regalo,<br>
+ podés hacerlo a través de mi alias:</p>
+ <div class="alias" id="alias">Luzz.097</div>
+ <button onclick="copiarAlias()">COPIAR ALIAS 💌</button>
+ <p id="mensaje" style="font-size:14px"></p>
 
-  <div class="detalle">
-    <h2>📅 ¡Agendá la fecha!</h2>
-    <p>🗓️ Viernes 27 de noviembre de 2026</p>
-    <p>🕗 A las 20:00 hs</p>
-  </div>
+ <h2>¿ME ACOMPAÑÁS?</h2>
+ <p>¡Me encantaría celebrar este día con vos!</p>
+ <a class="boton" target="_blank"
+ href="https://wa.me/?text=Hola%20Luz%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV">
+ CONFIRMAR ASISTENCIA 💌
+ </a>
 
-  <h2>⏳ FALTA POQUITO ⏳</h2>
-
-  <div class="contador">
-    <div class="tiempo">
-      <strong id="dias">0</strong>
-      <span>DÍAS</span>
-    </div>
-    <div class="tiempo">
-      <strong id="horas">0</strong>
-      <span>HORAS</span>
-    </div>
-    <div class="tiempo">
-      <strong id="minutos">0</strong>
-      <span>MINUTOS</span>
-    </div>
-    <div class="tiempo">
-      <strong id="segundos">0</strong>
-      <span>SEGUNDOS</span>
-    </div>
-  </div>
-
-  <div class="detalle">
-    <h2>📍 ¿Dónde nos encontramos?</h2>
-    <p>Salvador Mazza 3484</p>
-    <p>Quilmes Oeste, Buenos Aires</p>
-
-    <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Salvador+Mazza+3484+Quilmes+Oeste+Buenos+Aires','_blank')">
-      📍 CÓMO LLEGAR
-    </button>
-  </div>
-
-  <div class="detalle">
-    <h2>🎁 Un regalito para Luz</h2>
-    <p>Tu presencia es mi mejor regalo.</p>
-    <p>Si querés hacerme un regalo, acá te dejo mi alias:</p>
-
-    <div class="alias" id="alias">Luzz.097</div>
-
-    <button onclick="copiarAlias()">
-      💌 COPIAR ALIAS
-    </button>
-
-    <p id="mensajeAlias"></p>
-  </div>
-
-  <h2>🥂 ¡Te espero para vivir una noche inolvidable! 🥂</h2>
-
-  <div class="pie">
-    Con mucho cariño, Luz 💜
-  </div>
-
+ <div class="divider">♡ ───────── ♡</div>
+ <p>Con mucho amor,</p>
+ <h1 style="font-size:38px">Luz</h1>
+ <p class="silver">Una noche para brillar y recordar siempre ✨</p>
+ <div class="star">✦ ✧ ✦ ✧ ✦</div>
+ <footer>¡Gracias por ser parte de este momento tan especial!</footer>
 </div>
 
 <script>
-const fechaFiesta = new Date("2026-11-27T20:00:00-03:00").getTime();
-
-function actualizarContador() {
-  const ahora = Date.now();
-  const diferencia = fechaFiesta - ahora;
-
-  if (diferencia <= 0) {
-    document.getElementById("dias").textContent = "0";
-    document.getElementById("horas").textContent = "0";
-    document.getElementById("minutos").textContent = "0";
-    document.getElementById("segundos").textContent = "0";
-    return;
-  }
-
-  document.getElementById("dias").textContent =
-    Math.floor(diferencia / (1000 * 60 * 60 * 24));
-
-  document.getElementById("horas").textContent =
-    Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-
-  document.getElementById("minutos").textContent =
-    Math.floor((diferencia / (1000 * 60)) % 60);
-
-  document.getElementById("segundos").textContent =
-    Math.floor((diferencia / 1000) % 60);
+function actualizarContador(){
+ const fecha=new Date("2026-11-27T20:00:00-03:00").getTime();
+ const diferencia=fecha-Date.now();
+ if(diferencia<=0){
+  document.getElementById("contador").innerHTML=
+  "<p>¡Llegó el gran día! 💜</p>";
+  return;
+ }
+ document.getElementById("dias").textContent=Math.floor(diferencia/86400000);
+ document.getElementById("horas").textContent=Math.floor(diferencia%86400000/3600000);
+ document.getElementById("minutos").textContent=Math.floor(diferencia%3600000/60000);
+ document.getElementById("segundos").textContent=Math.floor(diferencia%60000/1000);
 }
-
+function copiarAlias(){
+ const alias="Luzz.097";
+ if(navigator.clipboard && window.isSecureContext){
+  navigator.clipboard.writeText(alias).then(()=>{
+   document.getElementById("mensaje").textContent="¡Alias copiado! 💜";
+  }).catch(()=>mostrarAlias());
+ }else{mostrarAlias();}
+}
+function mostrarAlias(){
+ document.getElementById("mensaje").textContent=
+ "Tu alias es Luzz.097. Mantenelo presionado para copiarlo.";
+}
 actualizarContador();
-setInterval(actualizarContador, 1000);
-
-function copiarAlias() {
-  const alias = document.getElementById("alias").textContent;
-  const mensaje = document.getElementById("mensajeAlias");
-
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(alias)
-      .then(() => {
-        mensaje.textContent = "💜 ¡Alias copiado! Ya podés pegarlo.";
-      })
-      .catch(() => copiarAlternativo(alias, mensaje));
-  } else {
-    copiarAlternativo(alias, mensaje);
-  }
-}
-
-function copiarAlternativo(alias, mensaje) {
-  const campo = document.createElement("textarea");
-  campo.value = alias;
-  campo.style.position = "fixed";
-  campo.style.opacity = "0";
-  document.body.appendChild(campo);
-  campo.select();
-
-  try {
-    const correcto = document.execCommand("copy");
-    mensaje.textContent = correcto
-      ? "💜 ¡Alias copiado! Ya podés pegarlo."
-      : "Seleccioná y copiá el alias manualmente: Luzz.097";
-  } catch (e) {
-    mensaje.textContent = "Seleccioná y copiá el alias manualmente: Luzz.097";
-  }
-
-  campo.remove();
-}
-
-const simbolos = ["✨", "💜", "✦", "✧", "❋"];
-
-for (let i = 0; i < 24; i++) {
-  const brillo = document.createElement("div");
-  brillo.className = "brillo";
-  brillo.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
-  brillo.style.left = Math.random() * 100 + "vw";
-  brillo.style.animationDuration = (5 + Math.random() * 8) + "s";
-  brillo.style.animationDelay = (Math.random() * 8) + "s";
-  brillo.style.fontSize = (12 + Math.random() * 15) + "px";
-  document.body.appendChild(brillo);
-}
+setInterval(actualizarContador,1000);
 </script>
-
 </body>
 </html>
